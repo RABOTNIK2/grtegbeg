@@ -3,7 +3,7 @@ session_start();
 $host="localhost";
 $user="root";
 $pass="";
-$bd="bgtbt";
+$bd="htth";
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 

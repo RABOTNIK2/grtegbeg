@@ -3,13 +3,13 @@ session_start();
 $host="localhost";
 $user="root";
 $pass="";
-$bd="test";
+$bd="htth";
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 $link=mysqli_connect($host, $user, $pass, $bd );
 mysqli_query($link,"SET NAMES 'utf8'");
-if($_SESSION["auth"] == true){ ?>
+if($_SESSION["auth"] == true) {?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -131,7 +131,7 @@ if($_SESSION["auth"] == true){ ?>
 
 
 
-<? }else { ?>
+<?php }else { ?>
   <!doctype html>
 <html lang="en">
   <head>
@@ -250,7 +250,7 @@ if($_SESSION["auth"] == true){ ?>
 </div>
 
   </div>
-<? }?>
+<?php }?>
 
 
   

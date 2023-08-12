@@ -81,7 +81,7 @@ if($_SESSION["auth"] == true){?>
   
 </body>
 </html>
-<? }else{?>
+<?php }else{?>
   <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,4 +153,4 @@ if($_SESSION["auth"] == true){?>
   
 </body>
 </html>
-<? } ?>
+<?php } ?>

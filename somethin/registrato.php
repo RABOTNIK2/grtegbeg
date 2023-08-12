@@ -2,8 +2,8 @@
 session_start();
 $host="localhost";
 $user="root";
-$pass="root";
-$bd="kursov";
+$pass="";
+$bd="htth";
 
 $link=mysqli_connect($host, $user, $pass, $bd );
 mysqli_query($link,"SET NAMES 'utf8'");
@@ -21,12 +21,13 @@ function validation($log,$passs){
    if (mb_strlen($_POST["login"])>=4 && mb_strlen($_POST["login"])<=20 && mb_strlen($_POST["password"])>=6 && mb_strlen($_POST["password"])<=36 ){
       if ($_POST['password'] == $_POST['confirm']) {
         $login = $_POST['login'];
-        validation($login,$password);
+        
         
         $password = password_hash($_POST["password"],PASSWORD_DEFAULT);
         $query = "SELECT * FROM users WHERE login='$login'";
         $user = mysqli_fetch_assoc(mysqli_query($link, $query));
         if (empty($user)) {
+          validation($login,$password);
           $query = "INSERT INTO users SET login='$login', password='$password'";
           mysqli_query($link, $query);
     

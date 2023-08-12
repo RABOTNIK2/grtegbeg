@@ -3,7 +3,7 @@
   $host="localhost";
   $user="root";
   $pass="";
-  $bd="bgtbt";
+  $bd="htth";
   
   $link=mysqli_connect($host, $user, $pass, $bd );
   mysqli_query($link,"SET NAMES 'utf8'");

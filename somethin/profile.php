@@ -3,12 +3,17 @@ session_start();
 $host="localhost";
 $user="root";
 $pass="";
-$bd="bgtbt";
+$bd="htth";
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 $link=mysqli_connect($host, $user, $pass, $bd );
 mysqli_query($link,"SET NAMES 'utf8'");
+$popa=$_SESSION['id'];
+$query = "SELECT * FROM users WHERE id=$popa";
+$result = mysqli_query($link, $query) or die(mysqli_error($link));
+$user = mysqli_fetch_assoc($result);
+
 if($_SESSION["auth"] == true){?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,11 +52,13 @@ if($_SESSION["auth"] == true){?>
             </div>
             <div class="information">
                 <h4 class="text-light" id="stol">Людмила Вход</h4>
-                <p class="text-light">Дата рождения</p>
+                <p class="text-light">Возраст :<span class="age"><?= $user['age'] ?></span></p>
                 <p class="text-light">Количество постов</p>
                 <p class="text-light">Дата регистрации</p>
                 <a class="btn btn-outline-light" href="./add_recipe.php" role="button">Добавить рецепт</a>
                 <a class="btn btn-outline-light" href="./add_argue.php" role="button">Добавить пост</a>
+                
+                
 
             </div>
         </div>
@@ -64,7 +71,7 @@ if($_SESSION["auth"] == true){?>
   
 </body>
 </html>
-<? }else{ ?>
+<?php }else{ ?>
   <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,4 +120,4 @@ if($_SESSION["auth"] == true){?>
   
 </body>
 </html>
-<? } ?>
+<?php } ?>
